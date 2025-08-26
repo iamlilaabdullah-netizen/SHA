@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spartan Housing Alliance (SHA) – Michigan State University</title>
+  <meta name="description" content="Spartan Housing Alliance (SHA) at MSU: advocating for affordable, safe, and accessible housing for all students." />
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#111; --muted:#555; --line:#e5e7eb; --accent:#14532d;
+      --btn:#f3f4f6; --btn-border:#d1d5db; --card:#fafafa;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0b0c; --fg:#f6f7f8; --muted:#c9c9cf; --line:#232429; --accent:#86efac; --btn:#151619; --btn-border:#2a2b31; --card:#121316; }
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    header.hero{padding:4rem 1rem 2rem;border-bottom:1px solid var(--line);text-align:center;background:linear-gradient(180deg, rgba(20,83,45,.05), transparent)}
+    .wrap{max-width:1000px;margin:0 auto;padding:0 1rem}
+    nav{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1rem}
+    .pill{padding:.55rem .9rem;border:1px solid var(--btn-border);background:var(--btn);border-radius:999px;color:var(--fg)}
+    h1{font-size:2.25rem;margin:.25rem 0 .25rem}
+    h2{font-size:1.6rem;margin:1.25rem 0 .5rem}
+    section{padding:2rem 0;border-bottom:1px solid var(--line)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
+    .grid{display:grid;gap:1rem}
+    @media (min-width:800px){ .grid-2{grid-template-columns:1fr 1fr} }
+    footer{padding:2rem 1rem;text-align:center;color:var(--muted)}
+    .muted{color:var(--muted)}
+    details{border:1px solid var(--line);border-radius:12px;padding:1rem;background:var(--card)}
+    details+details{margin-top:.75rem}
+    summary{cursor:pointer;font-weight:600}
+    .small{font-size:.92rem}
+    .btn{display:inline-block;padding:.7rem 1rem;border:1px solid var(--btn-border);border-radius:12px;background:var(--btn);color:var(--fg)}
+    .kicker{letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-size:.8rem}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Michigan State University</div>
+      <h1>Spartan Housing Alliance</h1>
+      <p class="muted">Advocacy • Education • Community empowerment in housing justice.</p>
+      <nav>
+        <a class="pill" href="#mission">Mission</a>
+        <a class="pill" href="#involved">Get Involved</a>
+        <a class="pill" href="#leadership">Leadership</a>
+        <a class="pill" href="#constitution">Constitution</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Mission -->
+    <section id="mission">
+      <h2>Our Mission</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <p>
+            We advance policies and initiatives that promote <strong>affordable, safe, and accessible</strong> housing options for all MSU students—on and off campus. We educate our community on critical housing issues and empower students to organize and advocate effectively.
+          </p>
+          <ul>
+            <li>Advocacy with university and local government</li>
+            <li>Policy research & evidence addenda</li>
+            <li>Know-your-rights education & tenant resources</li>
+            <li>Coalition building with student and community orgs</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="small">Current Focus Areas</h3>
+          <ul>
+            <li>Eliminating barriers like non-refundable housing application fees</li>
+            <li>Improving maintenance response standards and accountability</li>
+            <li>Expanding access to affordable housing and transit options</li>
+          </ul>
+          <p class="muted small">These priorities evolve with member input and ongoing research.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section id="involved">
+      <h2>Get Involved</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="small">Join as a Member</h3>
+          <p>Membership is open to any currently enrolled MSU student who shares our mission. Active Members can vote and lead campaigns.</p>
+          <a class="btn" href="#contact">Sign up / Ask questions</a>
+        </div>
+        <div class="card">
+          <h3 class="small">Ways to Help</h3>
+          <ul>
+            <li>Policy research & data analysis</li>
+            <li>Outreach, comms, and events</li>
+            <li>Coalition & stakeholder engagement</li>
+            <li>Design, web, and media</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership -->
+    <section id="leadership">
+      <h2>Leadership</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="small">Founding Team</h3>
+          <ul>
+            <li><strong>President:</strong> Lila Abdullah</li>
+            <li><strong>Vice President:</strong> (Name)</li>
+            <li><strong>Roles:</strong> Policy, Outreach, Finance, Comms, Operations</li>
+          </ul>
+          <p class="muted small">Interested in a role? Reach out below.</p>
+        </div>
+        <div class="card">
+          <h3 class="small">Advisors & Partners</h3>
+          <p class="small">We collaborate with student orgs, community groups, and public officials aligned with housing justice goals.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Constitution -->
+    <section id="constitution">
+      <h2>Constitution</h2>
+
+      <details open>
+        <summary>Preamble</summary>
+        <p>
+          We, the students of Michigan State University, recognizing the critical importance of affordable, safe, and accessible housing for the well-being and success of the student body, establish this Constitution for the Spartan Housing Alliance in pursuit of advocacy, education, and community empowerment in housing justice.
+        </p>
+      </details>
+
+      <details>
+        <summary>Article I — Name and Purpose</summary>
+        <p><strong>Section 1: Name.</strong> The name of this organization shall be <em>Spartan Housing Alliance</em> at Michigan State University.</p>
+        <p><strong>Section 2: Mission and Purpose.</strong> The organization shall:</p>
+        <ol>
+          <li>Advocate for policies and initiatives that promote affordable, safe, and accessible housing options for all MSU students, on and off campus.</li>
+          <li>Educate students and the broader community on critical housing issues.</li>
+          <li>Empower students to engage in housing-related advocacy efforts.</li>
+          <li>Collaborate with university administration, government entities, community organizations, and student groups to advance our mission.</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>Article II — Membership</summary>
+        <p><strong>Section 1: General Membership.</strong> Any currently enrolled student at Michigan State University who expresses interest in the organization's mission may be considered a General Member.</p>
+        <p><strong>Section 2: Active Member Status.</strong> Active Members have voting rights and eligibility to propose or lead campaigns, subject to participation criteria adopted by the organization.</p>
+        <!-- Add additional sections as needed -->
+      </details>
+
+      <!-- Add more <details> blocks for Articles III+ as you finalize them -->
+      <p class="muted small">Note: This web copy mirrors the current draft and will be updated as amendments are adopted.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:sha-msu@example.edu">sha-msu@example.edu</a></p>
+        <p class="small muted">Replace the email above with your actual inbox or a Google Form link for sign-ups.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="small muted">© <span id="y"></span> Spartan Housing Alliance at Michigan State University</div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
