@@ -8,61 +8,117 @@
     :root {
       --msu-green: #18453b;
       --msu-white: #ffffff;
-      --msu-gray: #f5f5f5;
+      --msu-light: #f5f5f5;
+      --accent: #117a65;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--msu-gray);
+      background-color: var(--msu-light);
       color: #222;
       line-height: 1.6;
     }
 
     header {
-      background-color: var(--msu-green);
+      background: var(--msu-green);
       color: var(--msu-white);
-      padding: 1.2rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: var(--msu-white);
-      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    .hero {
+      background: var(--msu-green);
+      color: var(--msu-white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero a {
+      background: var(--accent);
+      color: var(--msu-white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
     }
+    .hero a:hover { background: #0e6655; }
 
-    nav a:hover { text-decoration: underline; }
-
-    main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
 
     section {
       background: var(--msu-white);
+      border-radius: 12px;
       padding: 2rem;
       margin-bottom: 2rem;
-      border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    h2 { color: var(--msu-green); }
+    h2 {
+      color: var(--msu-green);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    ul { padding-left: 1.2rem; }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1rem;
     }
 
     .card {
-      background: var(--msu-gray);
+      background: var(--msu-light);
       padding: 1rem;
       border-radius: 8px;
       text-align: center;
+      transition: transform 0.2s;
     }
+    .card:hover { transform: translateY(-4px); }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    form input, form button {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    form button {
+      background: var(--msu-green);
+      color: var(--msu-white);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    form button:hover { opacity: 0.9; }
 
     footer {
       text-align: center;
@@ -71,37 +127,10 @@
       color: var(--msu-white);
       margin-top: 2rem;
     }
-
-    iframe {
-      border: none;
-      width: 100%;
-      height: 500px;
-    }
-
-    form input, form button {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    form button {
-      background: var(--msu-green);
-      color: var(--msu-white);
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    form button:hover {
-      opacity: 0.9;
-    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Spartan Housing Alliance</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#mission">Mission</a>
@@ -112,6 +141,12 @@
       <a href="#newsletters">Newsletters</a>
     </nav>
   </header>
+
+  <section class="hero">
+    <h1>Spartan Housing Alliance</h1>
+    <p>Advocating for affordable, safe, and accessible housing at MSU.</p>
+    <a href="#join">Join Us Today</a>
+  </section>
 
   <main>
     <section id="about">
@@ -143,14 +178,12 @@
 
     <section id="calendar">
       <h2>Meetings & Events</h2>
-      <!-- Replace src with your Google Calendar embed link -->
       <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarid&ctz=America/New_York"></iframe>
     </section>
 
     <section id="join">
       <h2>Join Us</h2>
       <p>Membership is open to any currently enrolled MSU student who supports our mission. Joining SHA also subscribes you to our newsletter.</p>
-      <!-- Replace action with your Google Form or Formspree endpoint -->
       <form action="https://formspree.io/f/your-form-id" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
@@ -160,10 +193,10 @@
 
     <section id="announcements">
       <h2>Announcements</h2>
-      <ul>
-        <li><strong>Aug 2025:</strong> SHA founded and open for membership!</li>
-        <li><strong>Sept 2025:</strong> First general meeting — details in calendar.</li>
-      </ul>
+      <div class="card-grid">
+        <div class="card"><strong>Aug 2025:</strong><br> SHA founded and open for membership!</div>
+        <div class="card"><strong>Sept 2025:</strong><br> First general meeting — details in calendar.</div>
+      </div>
     </section>
 
     <section id="newsletters">
