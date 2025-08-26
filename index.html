@@ -21,37 +21,69 @@
       line-height: 1.6;
     }
 
+    /* ---------- NAVBAR ---------- */
     header {
       background: var(--msu-green);
       color: var(--msu-white);
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
+    header h1 {
+      font-size: 1.2rem;
+    }
+
     nav {
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      gap: 1.2rem;
     }
 
     nav a {
       color: var(--msu-white);
       text-decoration: none;
       font-weight: bold;
-      transition: opacity 0.2s;
     }
-    nav a:hover { opacity: 0.7; }
 
+    /* Hamburger button */
+    .menu-btn {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      height: 3px;
+      width: 25px;
+      background: var(--msu-white);
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--msu-green);
+    }
+
+    .mobile-nav a {
+      padding: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* ---------- HERO ---------- */
     .hero {
       background: var(--msu-green);
       color: var(--msu-white);
       text-align: center;
       padding: 4rem 2rem;
     }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
     .hero a {
       background: var(--accent);
@@ -63,38 +95,31 @@
     }
     .hero a:hover { background: #0e6655; }
 
-    main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    /* ---------- SECTIONS ---------- */
+    main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
 
     section {
-      background: var(--msu-white);
-      border-radius: 12px;
-      padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 2rem;
+      background: var(--msu-white);
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
 
-    h2 {
-      color: var(--msu-green);
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
+    h2 { color: var(--msu-green); margin-bottom: 1rem; }
 
-    ul { padding-left: 1.2rem; }
-
-    .card-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
 
-    .card {
+    .grid div {
       background: var(--msu-light);
       padding: 1rem;
       border-radius: 8px;
       text-align: center;
-      transition: transform 0.2s;
     }
-    .card:hover { transform: translateY(-4px); }
 
     iframe {
       width: 100%;
@@ -118,7 +143,6 @@
       cursor: pointer;
       font-weight: bold;
     }
-    form button:hover { opacity: 0.9; }
 
     footer {
       text-align: center;
@@ -127,27 +151,50 @@
       color: var(--msu-white);
       margin-top: 2rem;
     }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .menu-btn { display: flex; }
+      .mobile-nav.show { display: flex; }
+    }
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <header>
+    <h1>SHA</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#mission">Mission</a>
-      <a href="#exec">Exec Board</a>
+      <a href="#exec">Exec</a>
       <a href="#calendar">Calendar</a>
-      <a href="#join">Join Us</a>
+      <a href="#join">Join</a>
       <a href="#announcements">Announcements</a>
       <a href="#newsletters">Newsletters</a>
     </nav>
+    <div class="menu-btn" onclick="document.querySelector('.mobile-nav').classList.toggle('show')">
+      <span></span><span></span><span></span>
+    </div>
   </header>
+  <div class="mobile-nav">
+    <a href="#about">About</a>
+    <a href="#mission">Mission</a>
+    <a href="#exec">Exec</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#join">Join</a>
+    <a href="#announcements">Announcements</a>
+    <a href="#newsletters">Newsletters</a>
+  </div>
 
+  <!-- HERO -->
   <section class="hero">
-    <h1>Spartan Housing Alliance</h1>
+    <h2>Spartan Housing Alliance</h2>
     <p>Advocating for affordable, safe, and accessible housing at MSU.</p>
     <a href="#join">Join Us Today</a>
   </section>
 
+  <!-- CONTENT -->
   <main>
     <section id="about">
       <h2>Preamble</h2>
@@ -159,7 +206,7 @@
     <section id="mission">
       <h2>Mission & Purpose</h2>
       <ul>
-        <li>Advocate for policies and initiatives that promote affordable, safe, and accessible housing options for all MSU students.</li>
+        <li>Advocate for affordable, safe, and accessible housing options for all MSU students.</li>
         <li>Educate students and the broader community on critical housing issues.</li>
         <li>Empower students to engage in housing-related advocacy efforts.</li>
         <li>Collaborate with administration, government, and community partners.</li>
@@ -168,24 +215,22 @@
 
     <section id="exec">
       <h2>Executive Board</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Lila Abdullah</h3><p>President & Founder</p></div>
-        <div class="card"><h3>[Name]</h3><p>Vice President</p></div>
-        <div class="card"><h3>[Name]</h3><p>Treasurer</p></div>
-        <div class="card"><h3>[Name]</h3><p>Secretary</p></div>
+      <div class="grid">
+        <div><h3>Lila Abdullah</h3><p>President & Founder</p></div>
+        <div><h3>[Name]</h3><p>Vice President</p></div>
+        <div><h3>[Name]</h3><p>Treasurer</p></div>
+        <div><h3>[Name]</h3><p>Secretary</p></div>
       </div>
     </section>
 
     <section id="calendar">
       <h2>Meetings & Events</h2>
-      <!-- Replace with your actual Google Calendar embed link -->
       <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarid&ctz=America/New_York"></iframe>
     </section>
 
     <section id="join">
       <h2>Join Us</h2>
       <p>Membership is open to any currently enrolled MSU student who supports our mission. Joining SHA also subscribes you to our newsletter.</p>
-      <!-- Replace action with Google Form or Formspree link -->
       <form action="https://formspree.io/f/your-form-id" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
@@ -195,9 +240,9 @@
 
     <section id="announcements">
       <h2>Announcements</h2>
-      <div class="card-grid">
-        <div class="card"><strong>Aug 2025:</strong><br> SHA founded and open for membership!</div>
-        <div class="card"><strong>Sept 2025:</strong><br> First general meeting — details in calendar.</div>
+      <div class="grid">
+        <div><strong>Aug 2025:</strong><br> SHA founded and open for membership!</div>
+        <div><strong>Sept 2025:</strong><br> First general meeting — details in calendar.</div>
       </div>
     </section>
 
