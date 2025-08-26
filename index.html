@@ -3,23 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spartan Housing Alliance (SHA) – Michigan State University</title>
+  <title>Spartan Housing Alliance – MSU Student Housing Think Tank</title>
   <meta name="description" content="Spartan Housing Alliance (SHA) at MSU: advocating for affordable, safe, and accessible housing for all students." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff; --fg:#111; --muted:#555; --line:#e5e7eb; --accent:#14532d;
+      --bg:#ffffff; --fg:#111; --muted:#555; --line:#e5e7eb; --accent:#18453b;
       --btn:#f3f4f6; --btn-border:#d1d5db; --card:#fafafa;
     }
     @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0b0c; --fg:#f6f7f8; --muted:#c9c9cf; --line:#232429; --accent:#86efac; --btn:#151619; --btn-border:#2a2b31; --card:#121316; }
+      :root{ --bg:#0b0b0c; --fg:#f6f7f8; --muted:#c9c9cf; --line:#232429; --accent:#66a68d; --btn:#151619; --btn-border:#2a2b31; --card:#121316; }
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    h1,h2,h3{font-family:'Merriweather',serif}
     a{color:var(--accent);text-decoration:none}
-    header.hero{padding:4rem 1rem 2rem;border-bottom:1px solid var(--line);text-align:center;background:linear-gradient(180deg, rgba(20,83,45,.05), transparent)}
+    header.hero{padding:4rem 1rem 2rem;border-bottom:1px solid var(--line);text-align:center;background:var(--accent);color:#fff}
     .wrap{max-width:1000px;margin:0 auto;padding:0 1rem}
     nav{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1rem}
-    .pill{padding:.55rem .9rem;border:1px solid var(--btn-border);background:var(--btn);border-radius:999px;color:var(--fg)}
+    .pill{padding:.55rem .9rem;border:1px solid rgba(255,255,255,.4);background:transparent;border-radius:999px;color:#fff}
     h1{font-size:2.25rem;margin:.25rem 0 .25rem}
     h2{font-size:1.6rem;margin:1.25rem 0 .5rem}
     section{padding:2rem 0;border-bottom:1px solid var(--line)}
@@ -33,7 +37,8 @@
     summary{cursor:pointer;font-weight:600}
     .small{font-size:.92rem}
     .btn{display:inline-block;padding:.7rem 1rem;border:1px solid var(--btn-border);border-radius:12px;background:var(--btn);color:var(--fg)}
-    .kicker{letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-size:.8rem}
+    .kicker{letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+    header.hero .kicker{color:rgba(255,255,255,.8)}
   </style>
 </head>
 <body>
@@ -41,7 +46,7 @@
     <div class="wrap">
       <div class="kicker">Michigan State University</div>
       <h1>Spartan Housing Alliance</h1>
-      <p class="muted">Advocacy • Education • Community empowerment in housing justice.</p>
+      <p>Student housing policy think tank – research, policy, and advocacy.</p>
       <nav>
         <a class="pill" href="#mission">Mission</a>
         <a class="pill" href="#involved">Get Involved</a>
@@ -59,12 +64,12 @@
       <div class="grid grid-2">
         <div class="card">
           <p>
-            We advance policies and initiatives that promote <strong>affordable, safe, and accessible</strong> housing options for all MSU students—on and off campus. We educate our community on critical housing issues and empower students to organize and advocate effectively.
+            As a student-led think tank, we advance research-driven policies and initiatives that promote <strong>affordable, safe, and accessible</strong> housing options for all MSU students—on and off campus. We educate our community on critical housing issues and empower students to organize and advocate effectively.
           </p>
           <ul>
             <li>Advocacy with university and local government</li>
-            <li>Policy research & evidence addenda</li>
-            <li>Know-your-rights education & tenant resources</li>
+            <li>Policy research &amp; evidence addenda</li>
+            <li>Know-your-rights education &amp; tenant resources</li>
             <li>Coalition building with student and community orgs</li>
           </ul>
         </div>
@@ -92,9 +97,9 @@
         <div class="card">
           <h3 class="small">Ways to Help</h3>
           <ul>
-            <li>Policy research & data analysis</li>
+            <li>Policy research &amp; data analysis</li>
             <li>Outreach, comms, and events</li>
-            <li>Coalition & stakeholder engagement</li>
+            <li>Coalition &amp; stakeholder engagement</li>
             <li>Design, web, and media</li>
           </ul>
         </div>
@@ -115,7 +120,7 @@
           <p class="muted small">Interested in a role? Reach out below.</p>
         </div>
         <div class="card">
-          <h3 class="small">Advisors & Partners</h3>
+          <h3 class="small">Advisors &amp; Partners</h3>
           <p class="small">We collaborate with student orgs, community groups, and public officials aligned with housing justice goals.</p>
         </div>
       </div>
@@ -173,3 +178,4 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
+
