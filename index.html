@@ -1,181 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spartan Housing Alliance – MSU Student Housing Think Tank</title>
-  <meta name="description" content="Spartan Housing Alliance (SHA) at MSU: advocating for affordable, safe, and accessible housing for all students." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spartan Housing Alliance</title>
   <style>
-    :root{
-      --bg:#ffffff; --fg:#111; --muted:#555; --line:#e5e7eb; --accent:#18453b;
-      --btn:#f3f4f6; --btn-border:#d1d5db; --card:#fafafa;
+    :root {
+      --msu-green: #18453b;
+      --msu-white: #ffffff;
+      --msu-gray: #f5f5f5;
     }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0b0c; --fg:#f6f7f8; --muted:#c9c9cf; --line:#232429; --accent:#66a68d; --btn:#151619; --btn-border:#2a2b31; --card:#121316; }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--msu-gray);
+      color: #222;
+      line-height: 1.6;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-    h1,h2,h3{font-family:'Merriweather',serif}
-    a{color:var(--accent);text-decoration:none}
-    header.hero{padding:4rem 1rem 2rem;border-bottom:1px solid var(--line);text-align:center;background:var(--accent);color:#fff}
-    .wrap{max-width:1000px;margin:0 auto;padding:0 1rem}
-    nav{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1rem}
-    .pill{padding:.55rem .9rem;border:1px solid rgba(255,255,255,.4);background:transparent;border-radius:999px;color:#fff}
-    h1{font-size:2.25rem;margin:.25rem 0 .25rem}
-    h2{font-size:1.6rem;margin:1.25rem 0 .5rem}
-    section{padding:2rem 0;border-bottom:1px solid var(--line)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
-    .grid{display:grid;gap:1rem}
-    @media (min-width:800px){ .grid-2{grid-template-columns:1fr 1fr} }
-    footer{padding:2rem 1rem;text-align:center;color:var(--muted)}
-    .muted{color:var(--muted)}
-    details{border:1px solid var(--line);border-radius:12px;padding:1rem;background:var(--card)}
-    details+details{margin-top:.75rem}
-    summary{cursor:pointer;font-weight:600}
-    .small{font-size:.92rem}
-    .btn{display:inline-block;padding:.7rem 1rem;border:1px solid var(--btn-border);border-radius:12px;background:var(--btn);color:var(--fg)}
-    .kicker{letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
-    header.hero .kicker{color:rgba(255,255,255,.8)}
+
+    header {
+      background-color: var(--msu-green);
+      color: var(--msu-white);
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--msu-white);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    section {
+      background: var(--msu-white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 { color: var(--msu-green); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--msu-gray);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--msu-green);
+      color: var(--msu-white);
+      margin-top: 2rem;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 500px;
+    }
+
+    form input, form button {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background: var(--msu-green);
+      color: var(--msu-white);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    form button:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="kicker">Michigan State University</div>
-      <h1>Spartan Housing Alliance</h1>
-      <p>Student housing policy think tank – research, policy, and advocacy.</p>
-      <nav>
-        <a class="pill" href="#mission">Mission</a>
-        <a class="pill" href="#involved">Get Involved</a>
-        <a class="pill" href="#leadership">Leadership</a>
-        <a class="pill" href="#constitution">Constitution</a>
-        <a class="pill" href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Spartan Housing Alliance</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#mission">Mission</a>
+      <a href="#exec">Exec Board</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#join">Join Us</a>
+      <a href="#announcements">Announcements</a>
+      <a href="#newsletters">Newsletters</a>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <!-- Mission -->
+  <main>
+    <section id="about">
+      <h2>Preamble</h2>
+      <p>
+        We, the students of Michigan State University, recognizing the critical importance of affordable, safe, and accessible housing for the well-being and success of the student body, do hereby establish this Constitution for the Spartan Housing Alliance in pursuit of advocacy, education, and community empowerment in housing justice.
+      </p>
+    </section>
+
     <section id="mission">
-      <h2>Our Mission</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <p>
-            As a student-led think tank, we advance research-driven policies and initiatives that promote <strong>affordable, safe, and accessible</strong> housing options for all MSU students—on and off campus. We educate our community on critical housing issues and empower students to organize and advocate effectively.
-          </p>
-          <ul>
-            <li>Advocacy with university and local government</li>
-            <li>Policy research &amp; evidence addenda</li>
-            <li>Know-your-rights education &amp; tenant resources</li>
-            <li>Coalition building with student and community orgs</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="small">Current Focus Areas</h3>
-          <ul>
-            <li>Eliminating barriers like non-refundable housing application fees</li>
-            <li>Improving maintenance response standards and accountability</li>
-            <li>Expanding access to affordable housing and transit options</li>
-          </ul>
-          <p class="muted small">These priorities evolve with member input and ongoing research.</p>
-        </div>
+      <h2>Mission & Purpose</h2>
+      <ul>
+        <li>Advocate for policies and initiatives that promote affordable, safe, and accessible housing options for all MSU students.</li>
+        <li>Educate students and the broader community on critical housing issues.</li>
+        <li>Empower students to engage in housing-related advocacy efforts.</li>
+        <li>Collaborate with administration, government, and community partners.</li>
+      </ul>
+    </section>
+
+    <section id="exec">
+      <h2>Executive Board</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Lila Abdullah</h3><p>President & Founder</p></div>
+        <div class="card"><h3>[Name]</h3><p>Vice President</p></div>
+        <div class="card"><h3>[Name]</h3><p>Treasurer</p></div>
+        <div class="card"><h3>[Name]</h3><p>Secretary</p></div>
       </div>
     </section>
 
-    <!-- Get Involved -->
-    <section id="involved">
-      <h2>Get Involved</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 class="small">Join as a Member</h3>
-          <p>Membership is open to any currently enrolled MSU student who shares our mission. Active Members can vote and lead campaigns.</p>
-          <a class="btn" href="#contact">Sign up / Ask questions</a>
-        </div>
-        <div class="card">
-          <h3 class="small">Ways to Help</h3>
-          <ul>
-            <li>Policy research &amp; data analysis</li>
-            <li>Outreach, comms, and events</li>
-            <li>Coalition &amp; stakeholder engagement</li>
-            <li>Design, web, and media</li>
-          </ul>
-        </div>
-      </div>
+    <section id="calendar">
+      <h2>Meetings & Events</h2>
+      <!-- Replace src with your Google Calendar embed link -->
+      <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarid&ctz=America/New_York"></iframe>
     </section>
 
-    <!-- Leadership -->
-    <section id="leadership">
-      <h2>Leadership</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 class="small">Founding Team</h3>
-          <ul>
-            <li><strong>President:</strong> Lila Abdullah</li>
-            <li><strong>Vice President:</strong> (Name)</li>
-            <li><strong>Roles:</strong> Policy, Outreach, Finance, Comms, Operations</li>
-          </ul>
-          <p class="muted small">Interested in a role? Reach out below.</p>
-        </div>
-        <div class="card">
-          <h3 class="small">Advisors &amp; Partners</h3>
-          <p class="small">We collaborate with student orgs, community groups, and public officials aligned with housing justice goals.</p>
-        </div>
-      </div>
+    <section id="join">
+      <h2>Join Us</h2>
+      <p>Membership is open to any currently enrolled MSU student who supports our mission. Joining SHA also subscribes you to our newsletter.</p>
+      <!-- Replace action with your Google Form or Formspree endpoint -->
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Join & Subscribe</button>
+      </form>
     </section>
 
-    <!-- Constitution -->
-    <section id="constitution">
-      <h2>Constitution</h2>
-
-      <details open>
-        <summary>Preamble</summary>
-        <p>
-          We, the students of Michigan State University, recognizing the critical importance of affordable, safe, and accessible housing for the well-being and success of the student body, establish this Constitution for the Spartan Housing Alliance in pursuit of advocacy, education, and community empowerment in housing justice.
-        </p>
-      </details>
-
-      <details>
-        <summary>Article I — Name and Purpose</summary>
-        <p><strong>Section 1: Name.</strong> The name of this organization shall be <em>Spartan Housing Alliance</em> at Michigan State University.</p>
-        <p><strong>Section 2: Mission and Purpose.</strong> The organization shall:</p>
-        <ol>
-          <li>Advocate for policies and initiatives that promote affordable, safe, and accessible housing options for all MSU students, on and off campus.</li>
-          <li>Educate students and the broader community on critical housing issues.</li>
-          <li>Empower students to engage in housing-related advocacy efforts.</li>
-          <li>Collaborate with university administration, government entities, community organizations, and student groups to advance our mission.</li>
-        </ol>
-      </details>
-
-      <details>
-        <summary>Article II — Membership</summary>
-        <p><strong>Section 1: General Membership.</strong> Any currently enrolled student at Michigan State University who expresses interest in the organization's mission may be considered a General Member.</p>
-        <p><strong>Section 2: Active Member Status.</strong> Active Members have voting rights and eligibility to propose or lead campaigns, subject to participation criteria adopted by the organization.</p>
-        <!-- Add additional sections as needed -->
-      </details>
-
-      <!-- Add more <details> blocks for Articles III+ as you finalize them -->
-      <p class="muted small">Note: This web copy mirrors the current draft and will be updated as amendments are adopted.</p>
+    <section id="announcements">
+      <h2>Announcements</h2>
+      <ul>
+        <li><strong>Aug 2025:</strong> SHA founded and open for membership!</li>
+        <li><strong>Sept 2025:</strong> First general meeting — details in calendar.</li>
+      </ul>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Email: <a href="mailto:sha-msu@example.edu">sha-msu@example.edu</a></p>
-        <p class="small muted">Replace the email above with your actual inbox or a Google Form link for sign-ups.</p>
-      </div>
+    <section id="newsletters">
+      <h2>Latest Newsletters</h2>
+      <p><a href="newsletters/aug2025.pdf" target="_blank">August 2025 Newsletter (PDF)</a></p>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      <div class="small muted">© <span id="y"></span> Spartan Housing Alliance at Michigan State University</div>
-    </div>
+    <p>© 2025 Spartan Housing Alliance | Michigan State University</p>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
-
