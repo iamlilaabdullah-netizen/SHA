@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spartan Housing Alliance | Home</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!--
+      The header contains a responsive navigation bar. The hamburger button
+      toggles the visibility of the menu on small screens. All links are
+      relative to the root of the site. Update the href values if you rename
+      pages or restructure folders.
+    -->
+    <header>
+      <nav class="navbar">
+        <a href="." class="nav-brand">
+          <img src="assets/img/logo.jpg" alt="Spartan Housing Alliance logo" />
+          <span>Spartan Housing Alliance</span>
+        </a>
+        <button id="nav-toggle" class="nav-toggle" aria-controls="nav-menu" aria-expanded="false">
+          ☰
+          <span class="visually-hidden">Toggle navigation menu</span>
+        </button>
+        <div id="nav-menu" class="nav-menu">
+          <a href="about/">About</a>
+          <a href="campaigns/">Campaigns</a>
+          <a href="exec/">Executive Board</a>
+          <a href="priorities/">Priorities</a>
+          <a href="contact/">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section introducing the organization and inviting visitors to learn more -->
+      <section class="hero">
+        <h1>Housing Justice at MSU</h1>
+        <p>
+          Spartan Housing Alliance advocates for affordable, safe, and equitable
+          housing for all students and residents through policy change,
+          community engagement, and education.
+        </p>
+        <a href="campaigns/" class="cta-btn">View Campaigns</a>
+      </section>
+
+      <!-- Embedded calendar section. Replace the src with your public Google Calendar embed link. -->
+      <section>
+        <h2>Upcoming Meetings &amp; Events</h2>
+        <p>
+          Stay informed about our weekly strategy sessions, teach‑ins, and other
+          events. The calendar below is tethered to our organization’s Google
+          Calendar. Replace the <code>src</code> value with your own public
+          calendar embed link.
+        </p>
+        <div style="overflow: auto">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_EMBED_LINK"
+            style="border: 0"
+            width="100%"
+            height="400"
+            frameborder="0"
+            scrolling="no"
+            title="Spartan Housing Alliance calendar"
+            aria-label="Calendar of meetings and events"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Spartan Housing Alliance. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

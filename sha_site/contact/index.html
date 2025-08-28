@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Spartan Housing Alliance</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="../" class="nav-brand">
+          <img src="../assets/img/logo.jpg" alt="Spartan Housing Alliance logo" />
+          <span>Spartan Housing Alliance</span>
+        </a>
+        <button id="nav-toggle" class="nav-toggle" aria-controls="nav-menu" aria-expanded="false">
+          ☰
+          <span class="visually-hidden">Toggle navigation menu</span>
+        </button>
+        <div id="nav-menu" class="nav-menu">
+          <a href="../about/">About</a>
+          <a href="../campaigns/">Campaigns</a>
+          <a href="../exec/">Executive Board</a>
+          <a href="../priorities/">Priorities</a>
+          <a href="../contact/">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1>Contact Us</h1>
+        <p>
+          We’d love to hear from you! Please choose the appropriate form below
+          to get in touch. These forms are for demonstration only—update the
+          <code>action</code> attribute to connect to your preferred form
+          handling service (e.g., Formspree, Google Forms).
+        </p>
+      </section>
+      <section>
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Students, Residents &amp; Constituents</legend>
+            <label for="s-name">Name</label>
+            <input type="text" id="s-name" name="name" required />
+            <label for="s-email">Email</label>
+            <input type="email" id="s-email" name="email" required />
+            <label for="s-message">Message</label>
+            <textarea id="s-message" name="message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+          </fieldset>
+        </form>
+
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Businesses, Organizations &amp; Government</legend>
+            <label for="b-name">Name</label>
+            <input type="text" id="b-name" name="name" required />
+            <label for="b-email">Email</label>
+            <input type="email" id="b-email" name="email" required />
+            <label for="b-organization">Organization</label>
+            <input type="text" id="b-organization" name="organization" />
+            <label for="b-message">Message</label>
+            <textarea id="b-message" name="message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+          </fieldset>
+        </form>
+      </section>
+      <section>
+        <h2>Visit or Email Us</h2>
+        <p>
+          Email:
+          <a href="mailto:info@myorg.com">info@myorg.com</a>
+        </p>
+        <p>Location: East Lansing, Michigan</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Spartan Housing Alliance. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
