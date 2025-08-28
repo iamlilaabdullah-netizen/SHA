@@ -5,139 +5,307 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Housing Advocacy</title>
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Bootstrap Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
   <!-- AOS animation CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin-top: 70px;
-      scroll-behavior: smooth;
+    :root {
+      --brand-1: #18453b; /* MSU-ish green */
+      --brand-2: #117a65; /* accent */
+      --ink: #0f172a;
+      --muted: #6b7280;
+      --light: #f8fafc;
     }
 
-    /* Hero section */
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: var(--light); }
+
+    /* Navbar */
+    .navbar { transition: background-color .25s ease, box-shadow .25s ease; }
+    .navbar.scrolled { background: #0b0f10 !important; box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+    .navbar .nav-link { font-weight: 600; }
+
+    /* Hero */
     .hero {
-      height: 100vh;
-      background: linear-gradient(135deg, #007bff, #6610f2);
+      min-height: 90vh;
+      background:
+        linear-gradient(120deg, rgba(24,69,59,.85), rgba(17,122,101,.75)),
+        url('https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
       color: #fff;
-      display: flex;
-      align-items: center;
+      display: grid;
+      place-items: center;
       text-align: center;
+      padding: 7rem 1rem 4rem;
     }
-    .hero .btn {
-      margin-top: 20px;
-    }
+    .hero h1 { font-weight: 800; letter-spacing: .3px; }
+    .hero p.lead { max-width: 720px; margin: 1rem auto 0; color: #e6f3ef; }
+    .hero .cta-btns .btn { padding:.8rem 1.25rem; border-radius: 999px; }
+    .scroll-down { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); opacity: .85; }
 
-    /* Back-to-top button */
-    #backToTop {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
+    /* Sections */
+    section.section { padding: 5rem 0; background: #fff; }
+    section.section.alt { background: var(--light); }
+    .section h2 { font-weight: 800; }
+    .section .sub { color: var(--muted); max-width: 760px; }
+
+    /* Feature cards */
+    .feature-card { border: none; border-radius: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,.05); transition: transform .15s ease, box-shadow .2s ease; }
+    .feature-card:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(0,0,0,.08); }
+
+    /* Project cards */
+    .project-card { border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden; background: #fff; height: 100%; }
+    .project-card img { height: 180px; object-fit: cover; }
+
+    /* Stats */
+    .stat { text-align: center; }
+    .stat .num { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--brand-1); }
+    .stat .lbl { color: var(--muted); font-weight: 600; }
+
+    /* Contact */
+    .contact-card { border: none; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+
+    /* Footer */
+    footer { background: #0b0f10; color: #cbd5e1; }
+
+    /* Back-to-top */
+    #backToTop { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; border-radius: 999px; }
+
+    /* A11y: respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
     }
   </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
   <!-- Navbar -->
-  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">My Org</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-      >
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="bi bi-house-heart-fill me-2"></i>Housing Advocacy
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#get-involved">Get Involved</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero position-relative">
     <div class="container">
       <h1 class="display-4" data-aos="fade-up">Affordable Homes for All</h1>
-      <p class="lead" data-aos="fade-up" data-aos-delay="150">
-        Join us to advocate for housing justice.
-      </p>
-      <a
-        href="#about"
-        class="btn btn-primary btn-lg"
-        data-aos="fade-up"
-        data-aos-delay="300"
-        >Learn More</a
-      >
+      <p class="lead" data-aos="fade-up" data-aos-delay="120">Join us to advocate for housing justice through policy change, outreach, and student power.</p>
+      <div class="cta-btns d-flex justify-content-center gap-3 mt-3" data-aos="fade-up" data-aos-delay="240">
+        <a href="#get-involved" class="btn btn-light fw-semibold"><i class="bi bi-person-plus me-2"></i>Become a Member</a>
+        <a href="#projects" class="btn btn-outline-light fw-semibold"><i class="bi bi-rocket me-2"></i>See Projects</a>
+      </div>
     </div>
+    <a class="scroll-down text-decoration-none text-white-50" href="#about" aria-label="Scroll to content">
+      <i class="bi bi-chevron-down fs-2"></i>
+    </a>
   </header>
 
   <!-- About Section -->
-  <section id="about" class="container py-5">
-    <div data-aos="fade-right">
-      <h2>About Us</h2>
-      <p>
-        We’re a student-led organization advocating for affordable housing
-        through policy, community outreach, and education.
-      </p>
+  <section id="about" class="section alt">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p class="sub mx-auto">We’re a student-led organization advocating for affordable housing through policy, community outreach, research, and education.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="card feature-card h-100 p-4">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success-subtle text-success fs-3" style="width:56px;height:56px"><i class="bi bi-people"></i></div>
+            <h5 class="mt-3">Community</h5>
+            <p class="mb-0">We connect students, tenants, and local leaders to push for solutions together.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card feature-card h-100 p-4">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-subtle text-primary fs-3" style="width:56px;height:56px"><i class="bi bi-megaphone"></i></div>
+            <h5 class="mt-3">Advocacy</h5>
+            <p class="mb-0">From fee relief to maintenance standards, we organize for concrete policy wins.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card feature-card h-100 p-4">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-warning-subtle text-warning fs-3" style="width:56px;height:56px"><i class="bi bi-journal-text"></i></div>
+            <h5 class="mt-3">Research</h5>
+            <p class="mb-0">We publish accessible explainers and data-driven briefs to inform decisions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div class="stat"><div class="num" data-count="500">0</div><div class="lbl">Members Reached</div></div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="stat"><div class="num" data-count="12">0</div><div class="lbl">Campaigns</div></div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="stat"><div class="num" data-count="30">0</div><div class="lbl">Partners</div></div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="stat"><div class="num" data-count="3">0</div><div class="lbl">Policy Wins</div></div></div>
+      </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="bg-light py-5">
+  <section id="projects" class="section alt">
     <div class="container">
-      <div data-aos="fade-left">
+      <div class="text-center mb-4" data-aos="fade-up">
         <h2>Projects</h2>
-        <p>
-          Explore our initiatives that aim to make housing accessible for
-          everyone.
-        </p>
+        <p class="sub mx-auto">Explore our initiatives that aim to make housing accessible for everyone.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" class="w-100" alt="Students meeting about policy" />
+            <div class="p-3">
+              <h5 class="mb-1">Housing Application Fee Relief</h5>
+              <p class="text-secondary mb-2">We’re pushing to reduce or waive upfront fees that block access to on‑campus housing.</p>
+              <a href="#" class="link-primary text-decoration-none">Read brief <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" class="w-100" alt="Maintenance request" />
+            <div class="p-3">
+              <h5 class="mb-1">Timely Repairs Standard</h5>
+              <p class="text-secondary mb-2">Setting clear timelines for urgent repairs, mold, pests, and routine maintenance.</p>
+              <a href="#" class="link-primary text-decoration-none">See proposal <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1523575708161-ad0fc2a9b951?q=80&w=1200&auto=format&fit=crop" class="w-100" alt="Community outreach" />
+            <div class="p-3">
+              <h5 class="mb-1">Tenant Education Series</h5>
+              <p class="text-secondary mb-2">Know your rights workshops and guides for students on and off campus.</p>
+              <a href="#" class="link-primary text-decoration-none">View resources <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved -->
+  <section id="get-involved" class="section">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <h2>Get Involved</h2>
+        <p class="sub mx-auto">Three easy ways to plug in this month.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card h-100 feature-card p-4">
+            <h5><i class="bi bi-discord me-2"></i>Join the Chat</h5>
+            <p>Hop into our community server to meet organizers and get updates.</p>
+            <a class="btn btn-outline-primary btn-sm rounded-pill" href="#">Join now</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+          <div class="card h-100 feature-card p-4">
+            <h5><i class="bi bi-calendar-event me-2"></i>Attend a Meeting</h5>
+            <p>Weekly strategy sessions and monthly teach‑ins on tenant rights.</p>
+            <a class="btn btn-outline-primary btn-sm rounded-pill" href="#">See calendar</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 feature-card p-4">
+            <h5><i class="bi bi-pencil-square me-2"></i>Volunteer / Research</h5>
+            <p>Help with data gathering, outreach, or write for our brief series.</p>
+            <a class="btn btn-outline-primary btn-sm rounded-pill" href="#">Sign up</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="container py-5">
-    <div data-aos="zoom-in">
-      <h2>Contact Us</h2>
-      <p>
-        Want to get involved? Email
-        <a href="mailto:info@myorg.com">info@myorg.com</a>.
-      </p>
+  <section id="contact" class="section alt">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="card contact-card h-100 p-4">
+            <h3 class="mb-2">Contact Us</h3>
+            <p class="text-secondary">Want to get involved or collaborate? Send a note and we’ll get back soon.</p>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="name">Name</label>
+                  <input id="name" type="text" class="form-control" placeholder="Your name" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email">Email</label>
+                  <input id="email" type="email" class="form-control" placeholder="you@example.com" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="msg">Message</label>
+                  <textarea id="msg" class="form-control" rows="5" placeholder="How would you like to get involved?" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary rounded-pill">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card contact-card h-100 p-4">
+            <h5 class="mb-3"><i class="bi bi-envelope-at me-2"></i>Email</h5>
+            <p class="mb-4"><a href="mailto:info@myorg.com">info@myorg.com</a></p>
+            <h5 class="mb-3"><i class="bi bi-geo-alt me-2"></i>Location</h5>
+            <p class="mb-4">East Lansing, Michigan</p>
+            <h5 class="mb-3"><i class="bi bi-clock me-2"></i>Office Hours</h5>
+            <p>Tue & Thu · 2–4pm (by appointment)</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div class="small">© <span id="year"></span> Housing Advocacy. All rights reserved.</div>
+      <div class="d-flex gap-3">
+        <a class="text-decoration-none text-light" href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+        <a class="text-decoration-none text-light" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a class="text-decoration-none text-light" href="#" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
   <!-- Back-to-top Button -->
-  <button id="backToTop" class="btn btn-primary">
-    <i class="bi bi-arrow-up"></i>
-  </button>
+  <button id="backToTop" class="btn btn-primary btn-lg shadow"><i class="bi bi-arrow-up"></i></button>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -147,16 +315,50 @@
 
   <script>
     // Initialize AOS animations
-    AOS.init();
+    AOS.init({ once: true, duration: 600, easing: 'ease-out' });
+
+    // Navbar style on scroll
+    const nav = document.getElementById('mainNav');
+    const onScroll = () => {
+      if (window.scrollY > 10) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     // Back-to-top button logic
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      backToTop.style.display = window.pageYOffset > 300 ? "block" : "none";
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.pageYOffset > 500 ? 'block' : 'none';
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+
+    // Stats counter (lightweight)
+    const animateCounts = () => {
+      document.querySelectorAll('.num[data-count]').forEach(el => {
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        const start = 0; const duration = 900; const startTime = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - startTime) / duration, 1);
+          el.textContent = Math.floor(start + (target - start) * p);
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    };
+    // Trigger when stats section enters viewport
+    let statsAnimated = false;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsAnimated) { statsAnimated = true; animateCounts(); }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.stat').forEach(s => observer.observe(s));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
